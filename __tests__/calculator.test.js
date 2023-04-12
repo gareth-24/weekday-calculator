@@ -25,8 +25,11 @@ describe('Date', () => {
 
   test('should correctly return the number of days the date is away from January 1, 2001', () => {
     let futureDate = new Date(5,3,2001);
+    let pastDate = new Date(25,12,2000);
     futureDate.convertDateToDays();
+    pastDate.convertDateToDays();
     expect(futureDate.daysSince2001).toEqual(63);
+    expect(pastDate.daysSince2001).toEqual(6);
   });
 
   test('should correctly return the day of the week for the given date in 2001', () => {

@@ -20,13 +20,22 @@ export class Date {
   convertDateToDays()  {
     // const currentMonth = this.month;
     // const monthsArray = [1,2,3,4,5,6,7,8,9,10,11,12];
+    if (this.year >= 2001)  {
+      const daysInMonthsArray = [31,28,31,30,31,30,31,31,30,31,30,31];
+      for (let i=0; i < this.month-1; i++)  {
+        this.daysSince2001 += daysInMonthsArray[i];
+      }
+      this.daysSince2001+=this.day;
+      this.daysSince2001 -= 1;
+  } else if (this.year < 2001)  {
     const daysInMonthsArray = [31,28,31,30,31,30,31,31,30,31,30,31];
-    for (let i=0; i < this.month-1; i++)  {
-      this.daysSince2001 += daysInMonthsArray[i];
+    for (let i = 11; i > this.month-1; i--) {
+      this.daysSince2001 += daysInMonthsArray[i+1];
+      console.log(this.daysSince2001);
     }
-    this.daysSince2001+=this.day;
-    this.daysSince2001 -= 1;
+    this.daysSince2001 = (this.daysSince2001 + (daysInMonthsArray[this.month-1])-this.day);
   }
+} 
 
   findDayOfWeek() {
     const daysRemainder = this.daysSince2001%7;
