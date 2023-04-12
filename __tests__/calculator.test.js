@@ -28,4 +28,12 @@ describe('Date', () => {
     futureDate.convertDateToDays();
     expect(futureDate.daysSince2001).toEqual(64);
   });
+
+  test('should correctly return the day of the week for the given date in 2001', () => {
+    let maxBDay = new Date(23,8,2001);
+    maxBDay.convertDateToDays();
+    maxBDay.findDayOfWeek();
+    expect(maxBDay.dayOfTheWeek).toEqual("Thursday");
+  })
+
 });
