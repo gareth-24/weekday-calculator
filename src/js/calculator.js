@@ -7,20 +7,39 @@ export class Date {
     this.dayOfTheWeek = "";
   }
 
-  checkLeapYear() {
-    if (this.year%400 === 0)  {
-      return true;
-    } else if ((this.year%4 === 0) && (this.year%100 !== 0))  {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // checkLeapYear() {
+  //   if (this.year%400 === 0)  {
+  //     return true;
+  //   } else if ((this.year%4 === 0) && (this.year%100 !== 0))  {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   convertDateToDays()  {
+
+
+    const checkLeapYear = (year) => {
+      if (year%400 === 0)  {
+        return true;
+      } else if ((year%4 === 0) && (year%100 !== 0))  {
+        return true;
+      } else {
+        return false;
+      }
+    }
     // const currentMonth = this.month;
     // const monthsArray = [1,2,3,4,5,6,7,8,9,10,11,12];
     if (this.year >= 2001)  {
+      //const extraDaysBetweenYears = (this.year - 2001) * 365;
+      for (let year = 2001; year < this.year; year ++)  {
+        if (checkLeapYear(year) === false) {
+          this.daysSince2001 += 365;
+        } else {
+          this.daysSince2001 += 366;
+        }
+      }
       const daysInMonthsArray = [31,28,31,30,31,30,31,31,30,31,30,31];
       for (let i=0; i < this.month-1; i++)  {
         this.daysSince2001 += daysInMonthsArray[i];
@@ -31,7 +50,7 @@ export class Date {
     const daysInMonthsArray = [31,28,31,30,31,30,31,31,30,31,30,31];
     for (let i = 11; i > this.month-1; i--) {
       this.daysSince2001 += daysInMonthsArray[i+1];
-      console.log(this.daysSince2001);
+      //console.log(this.daysSince2001);
     }
     this.daysSince2001 = (this.daysSince2001 + (daysInMonthsArray[this.month-1])-this.day);
   }
