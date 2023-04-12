@@ -26,14 +26,14 @@ describe('Date', () => {
   test('should correctly return the number of days the date is away from January 1, 2001', () => {
     let futureDate = new Date(5,3,2001);
     futureDate.convertDateToDays();
-    expect(futureDate.daysSince2001).toEqual(64);
+    expect(futureDate.daysSince2001).toEqual(63);
   });
 
   test('should correctly return the day of the week for the given date in 2001', () => {
     let maxBDay = new Date(23,8,2001);
     maxBDay.convertDateToDays();
     maxBDay.findDayOfWeek();
-    expect(maxBDay.dayOfTheWeek).toEqual("Thursday");
+    expect(maxBDay.dayOfTheWeek).toEqual("thursday");
   })
 
 });

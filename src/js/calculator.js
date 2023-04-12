@@ -25,10 +25,28 @@ export class Date {
       this.daysSince2001 += daysInMonthsArray[i];
     }
     this.daysSince2001+=this.day;
+    this.daysSince2001 -= 1;
   }
 
   findDayOfWeek() {
-
+    const daysRemainder = this.daysSince2001%7;
+    if (daysRemainder === 0) {
+      this.dayOfTheWeek = "monday";
+    } else if (daysRemainder === 1) {
+      this.dayOfTheWeek = "tuesday";
+    } else if (daysRemainder === 2) {
+      this.dayOfTheWeek = "wednesday";
+    } else if (daysRemainder === 3) {
+      this.dayOfTheWeek = "thursday";
+    } else if (daysRemainder === 4) {
+      this.dayOfTheWeek = "friday";
+    } else if (daysRemainder === 5) {
+      this.dayOfTheWeek = "saturday";
+    } else if (daysRemainder === 6) {
+      this.dayOfTheWeek = "sunday";
+    } 
+    console.log(this);
   }
+
 
 }
