@@ -1,3 +1,5 @@
-export class Calculator {
-  
+export class Date {
+  constructor(day, month, year) {
+
+  }
 }
