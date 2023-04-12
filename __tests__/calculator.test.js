@@ -27,12 +27,27 @@ describe('Date', () => {
     maxBDay.convertDateToDays();
     maxBDay.findDayOfWeek();
     expect(maxBDay.dayOfTheWeek).toEqual("thursday");
-  })
+  });
 
-  test('should correctly return the number of days the date is away from January 1, 2001 for a date in 2002', () => {
+  test('should correctly return the number of days the date is away from January 1, 2001 for a date after 2001', () => {
     let futureDate = new Date(5,3,2002);
+    let wayFutureDate = new Date(5,3,2012); 
+    wayFutureDate.convertDateToDays();
     futureDate.convertDateToDays();
+    wayFutureDate.findDayOfWeek();
     expect(futureDate.daysSince2001).toEqual(428);
-  })
+    expect(wayFutureDate.daysSince2001).toEqual(4081);
+    expect(wayFutureDate.dayOfTheWeek).toEqual("monday");
+  });
 
+  test('should correctly return the day of the week of a date before 2001', () => {
+    let pastDate = new Date(5,3,2000);
+    let wayPastDate = new Date(5,3,1996);
+    pastDate.convertDateToDays();
+    wayPastDate.convertDateToDays();
+    pastDate.findDayOfWeek();
+    wayPastDate.findDayOfWeek();
+    expect(pastDate.dayOfTheWeek).toEqual("sunday");
+    expect(wayPastDate.dayOfTheWeek).toEqual("tuesday");
+  });
 });
