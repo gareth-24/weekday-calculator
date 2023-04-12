@@ -22,4 +22,9 @@ describe('Date', () => {
     expect(dateInLeapYear2.checkLeapYear()).toEqual(true);
     expect(dateNotInLeapYear.checkLeapYear()).toEqual(false);
   });
+
+  test('should correctly return the number of days the date is away from January 1, 2001', () => {
+    let futureDate = new Date(5,3,2001);
+    expect(futureDate.daysFrom2001()).toEqual(63);
+  });
 });

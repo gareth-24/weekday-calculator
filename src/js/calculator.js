@@ -15,4 +15,8 @@ export class Date {
     }
   }
 
+  daysFrom2001()  {
+    
+  }
+
 }
