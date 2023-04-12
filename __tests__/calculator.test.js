@@ -13,8 +13,8 @@ describe('Date', () => {
     expect(date.year).toEqual(2001);
   });
 
-  test('should return true if the date occurs on a leap year', () =>  {
-    let dateInLeapYear = new Date (1,1,2000);
+  test('should return true if the date occurs on a leap year, starting only with years that are divisible by 400', () =>  {
+    let dateInLeapYear = new Date (1,1,2000); //this leap year is divisible by 400
     expect(dateInLeapYear.checkLeapYear()).toEqual(true);
     expect(date.checkLeapYear()).toEqual(false);
   })

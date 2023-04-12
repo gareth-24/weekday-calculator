@@ -6,6 +6,11 @@ export class Date {
   }
 
   checkLeapYear() {
-    
+    if (this.year%400 === 0)  {
+      return true;
+    } else {
+      return false;
+    }
   }
+  
 }
