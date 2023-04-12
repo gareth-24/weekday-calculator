@@ -39,4 +39,10 @@ describe('Date', () => {
     expect(maxBDay.dayOfTheWeek).toEqual("thursday");
   })
 
+  test('should correctly return the day of the week for a date in 2002', () => {
+    let futureDate = new Date(5,3,2002);
+    futureDate.convertDateToDays();
+    expect(futureDate.daysSince2001).toEqual(428);
+  })
+
 });
