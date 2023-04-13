@@ -51,36 +51,53 @@ export class Date {
     }
     if (checkLeapYear(this.year) === true) {
       daysInMonthsArray = [31,29,31,30,31,30,31,31,30,31,30,31];
+      
     } else {
       daysInMonthsArray = [31,28,31,30,31,30,31,31,30,31,30,31];
     }
     for (let i = 11; i > this.month-1; i--) {
-      this.daysSince2001 += daysInMonthsArray[i+1];
-      //console.log(this.daysSince2001);
+      this.daysSince2001 += daysInMonthsArray[i];
+      
     }
-    this.daysSince2001 = (this.daysSince2001 + (daysInMonthsArray[this.month-1])-this.day);
+    this.daysSince2001 = (this.daysSince2001 + (daysInMonthsArray[this.month-1])-this.day + 1);
   }
 } 
 
   findDayOfWeek() {
     const daysRemainder = this.daysSince2001%7;
-    console.log(daysRemainder);
-    if (daysRemainder === 0) {
-      this.dayOfTheWeek = "monday";
-    } else if (daysRemainder === 1) {
-      this.dayOfTheWeek = "tuesday";
-    } else if (daysRemainder === 2) {
-      this.dayOfTheWeek = "wednesday";
-    } else if (daysRemainder === 3) {
-      this.dayOfTheWeek = "thursday";
-    } else if (daysRemainder === 4) {
-      this.dayOfTheWeek = "friday";
-    } else if (daysRemainder === 5) {
-      this.dayOfTheWeek = "saturday";
-    } else if (daysRemainder === 6) {
-      this.dayOfTheWeek = "sunday";
-    } 
-    //console.log(this);
+    if (this.year >= 2001) {
+      if (daysRemainder === 0) {
+        this.dayOfTheWeek = "monday";
+      } else if (daysRemainder === 1) {
+        this.dayOfTheWeek = "tuesday";
+      } else if (daysRemainder === 2) {
+        this.dayOfTheWeek = "wednesday";
+      } else if (daysRemainder === 3) {
+        this.dayOfTheWeek = "thursday";
+      } else if (daysRemainder === 4) {
+        this.dayOfTheWeek = "friday";
+      } else if (daysRemainder === 5) {
+        this.dayOfTheWeek = "saturday";
+      } else if (daysRemainder === 6) {
+        this.dayOfTheWeek = "sunday";
+      } 
+    } else {
+      if (daysRemainder === 0) {
+        this.dayOfTheWeek = "monday";
+      } else if (daysRemainder === 1) {
+        this.dayOfTheWeek = "sunday";
+      } else if (daysRemainder === 2) {
+        this.dayOfTheWeek = "saturday";
+      } else if (daysRemainder === 3) {
+        this.dayOfTheWeek = "friday";
+      } else if (daysRemainder === 4) {
+        this.dayOfTheWeek = "thursday";
+      } else if (daysRemainder === 5) {
+        this.dayOfTheWeek = "wednesday";
+      } else if (daysRemainder === 6) {
+        this.dayOfTheWeek = "tuesday";
+      }
+    }
   }
 
 
