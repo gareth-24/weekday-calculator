@@ -41,7 +41,8 @@ export class Date {
       }
       this.daysSince2001+=this.day;
       this.daysSince2001 -= 1;
-  } else if (this.year < 2001)  {
+  } else {
+    //For dates before 2001
     for (let year = 2000; year > this.year; year --){
       if (checkLeapYear(year) === false) {
         this.daysSince2001 += 365;
@@ -78,7 +79,7 @@ export class Date {
         this.dayOfTheWeek = "friday";
       } else if (daysRemainder === 5) {
         this.dayOfTheWeek = "saturday";
-      } else if (daysRemainder === 6) {
+      } else {
         this.dayOfTheWeek = "sunday";
       } 
     } else {
@@ -94,11 +95,10 @@ export class Date {
         this.dayOfTheWeek = "thursday";
       } else if (daysRemainder === 5) {
         this.dayOfTheWeek = "wednesday";
-      } else if (daysRemainder === 6) {
+      } else {
         this.dayOfTheWeek = "tuesday";
       }
     }
   }
-
 
 }
