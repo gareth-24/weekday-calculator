@@ -19,7 +19,7 @@ describe('Date', () => {
     futureDate.convertDateToDays();
     pastDate.convertDateToDays();
     expect(futureDate.daysSince2001).toEqual(63);
-    expect(pastDate.daysSince2001).toEqual(6);
+    expect(pastDate.daysSince2001).toEqual(7);
   });
 
   test('should correctly return the day of the week for the given date in 2001', () => {
@@ -41,13 +41,33 @@ describe('Date', () => {
   });
 
   test('should correctly return the day of the week of a date before 2001', () => {
-    let pastDate = new Date(5,3,2000);
-    let wayPastDate = new Date(5,3,1996);
+    let pastDate = new Date(17,12,2000);
+    let wayPastDate = new Date(5,3,1999);
+    let wayPastDate2 = new Date(4,3,1999);
+    let wayPastDate3 = new Date(3,3,1999);
+    let wayPastDate4 = new Date(2,3,1999);
+    let wayPastDate5 = new Date(1,3,1999);
+    let wayPastDate6 = new Date(6,3,1999);
     pastDate.convertDateToDays();
     wayPastDate.convertDateToDays();
+    wayPastDate2.convertDateToDays();
+    wayPastDate3.convertDateToDays();
+    wayPastDate4.convertDateToDays();
+    wayPastDate5.convertDateToDays();
+    wayPastDate6.convertDateToDays();
     pastDate.findDayOfWeek();
     wayPastDate.findDayOfWeek();
+    wayPastDate2.findDayOfWeek();
+    wayPastDate3.findDayOfWeek();
+    wayPastDate4.findDayOfWeek();
+    wayPastDate5.findDayOfWeek();
+    wayPastDate6.findDayOfWeek();
     expect(pastDate.dayOfTheWeek).toEqual("sunday");
-    expect(wayPastDate.dayOfTheWeek).toEqual("tuesday");
+    expect(wayPastDate.dayOfTheWeek).toEqual("friday");
+    expect(wayPastDate2.dayOfTheWeek).toEqual("thursday");
+    expect(wayPastDate3.dayOfTheWeek).toEqual("wednesday");
+    expect(wayPastDate4.dayOfTheWeek).toEqual("tuesday");
+    expect(wayPastDate5.dayOfTheWeek).toEqual("monday");
+    expect(wayPastDate6.dayOfTheWeek).toEqual("saturday");
   });
 });
